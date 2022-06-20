@@ -10,6 +10,7 @@
   display: inline-flex;
   width: 243px;
   align-items: center;
+  cursor: pointer;
 }
 .icon {
   height: 25px;

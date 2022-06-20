@@ -8,6 +8,7 @@ const Products = () => {
   const [search, setSearch] = React.useState('');
   const [categories, setCategories] = React.useState(null);
   const [products, setProducts] = React.useState(null);
+  const [filter, setFilter] = React.useState('');
 
   React.useEffect(() => {
     axios
@@ -23,32 +24,38 @@ const Products = () => {
   }, []);
 
   const handleSearch = (event) => {
-    let { value, checked, type } = event.target;
-    if (type === 'checkbox') value = checked;
-    setSearch(value);
-  };
+      let { value } = event.target;
+      setSearch(value);
+    },
+    handleCheckboxSearch = (event) => {
+      setFilter(event.target.name);
+    };
 
   const searchResult = products
     ? products.filter((product) =>
         product.name.toLowerCase().includes(search.toLowerCase()),
       )
     : [];
-
-  const filterCheckbox = products
-    ? products.filter((product) => product.category.name.includes(search))
+  const searchCheckboxResult = products
+    ? products.filter((product) => product.category.name.includes(filter))
     : [];
 
-  // console.log(products);
+  const searchJoin = searchResult.filter((p) =>
+    searchCheckboxResult.includes(p),
+  );
 
   return (
     <div>
-      <SearchCheckbox handleSearch={handleSearch} categories={categories} />
+      <SearchCheckbox
+        search={search}
+        categories={categories}
+        handleCheckboxSearch={handleCheckboxSearch}
+      />
       <SeachBar search={search} handleSearch={handleSearch} />
       <ProductsList
         products={products}
         categories={categories}
-        searchResult={searchResult}
-        filterCheckbox={filterCheckbox}
+        searchJoin={searchJoin}
       />
     </div>
   );

@@ -1,17 +1,16 @@
 import React from 'react';
 import { ReactComponent as Leaf } from '../../Assets/leaf.svg';
 import styles from './ProductsList.module.css';
-
 import { ReactComponent as Pencil } from '../../Assets/pencil.svg';
 import { ReactComponent as Trash } from '../../Assets/trash.svg';
 import ProductsModal from './ProductsModal';
 
-const ProductsList = ({ products, searchResult }) => {
+const ProductsList = ({ products, searchJoin, searchCheckboxResult }) => {
   const [modal, setModal] = React.useState(false);
 
   return (
     <>
-      {(products === null || products.length === 0) && (
+      {(searchJoin === null || searchJoin.length === 0) && (
         <div className={`${styles.wrapper} animeLeft`}>
           <Leaf />
           <div className={styles.holder}>
@@ -26,11 +25,10 @@ const ProductsList = ({ products, searchResult }) => {
         </div>
       )}
       <div className={`${styles.productsWrapper} animeLeft`}>
-        {products &&
-          searchResult.map((product) => (
-            <>
+        {searchJoin &&
+          searchJoin.map((product) => (
+            <div key={product.id}>
               <div
-                key={product.id}
                 className={`${
                   product.disponibility === false
                     ? styles.productsUnavailableHolder
@@ -61,9 +59,9 @@ const ProductsList = ({ products, searchResult }) => {
               {modal && (
                 <ProductsModal closeModal={setModal} product={product} />
               )}
-            </>
+            </div>
           ))}
-        {!(products === null || products.length === 0) && (
+        {!(searchJoin === null || searchJoin.length === 0) && (
           <div className={styles.wrapperBtn2}>
             <a href="/create" className={styles.createBtn}>
               Cadastrar mais produtos

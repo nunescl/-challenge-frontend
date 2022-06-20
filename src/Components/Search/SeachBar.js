@@ -6,7 +6,7 @@ import styles from './SearchBar.module.css';
 const SeachBar = ({ search, handleSearch }) => {
   return (
     <div className={`${styles.container} animeLeft`}>
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} onClick={() => window.location.reload()}>
         <FiShoppingBag className={styles.icon} />
         <h2>Produtos Cadastrados</h2>
       </div>

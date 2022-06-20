@@ -23,7 +23,7 @@
   border: 1px solid green;
 }
 .wrapper input::before {
-  content: attr(name);
+  content: attr(placeholder);
   display: flex;
   justify-content: center;
   margin: 0 auto;
