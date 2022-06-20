@@ -1,0 +1,73 @@
+.modalBackground {
+  width: 99.1vw;
+  height: 180vh;
+  background: rgba(200, 200, 200, 0.2);
+  background-size: cover;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modalContainer {
+  width: 640px;
+  height: 160px;
+  border-radius: 12px;
+  background-color: white;
+  position: sticky;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: 9px;
+}
+.title h1 {
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--orange-2);
+}
+
+.body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer button {
+  width: 180px;
+  height: 40px;
+  margin: 26px 11.8px;
+  border: 1px solid var(--orange-2);
+  background-color: var(--white-1);
+  color: var(--orange-2);
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+#deleteBtn {
+  background-color: var(--orange-2);
+  color: white;
+}

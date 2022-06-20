@@ -1,0 +1,20 @@
+.header {
+  background: var(--orange-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  height: 117px;
+  user-select: none;
+}
+
+.left {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  cursor: default;
+}
+
+.exit {
+  padding-right: 2rem;
+}

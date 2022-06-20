@@ -1,0 +1,11 @@
+.footer {
+  background: var(--grey-3);
+  height: 93px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}

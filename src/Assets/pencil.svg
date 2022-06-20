@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="39.777" viewBox="0 0 40 39.777">
+  <g id="Grupo_25466" data-name="Grupo 25466" transform="translate(-519 -281.223)">
+    <g id="Grupo_25423" data-name="Grupo 25423" transform="translate(577 281.223)">
+      <path id="Icon_material-edit" data-name="Icon material-edit" d="M4.5,20.817v4.294H8.794L21.459,12.446,17.165,8.152ZM24.78,9.125a1.14,1.14,0,0,0,0-1.615L22.1,4.831a1.14,1.14,0,0,0-1.615,0l-2.1,2.1,4.294,4.294,2.1-2.1Z" transform="translate(-52.5 -4.496)" fill="#f29c46"/>
+    </g>
+    <text id="Editar" transform="translate(539 319)" fill="#595555" font-size="12" font-family="Arboria-Book, Arboria"><tspan x="-19.061" y="0">Editar</tspan></text>
+  </g>
+</svg>
