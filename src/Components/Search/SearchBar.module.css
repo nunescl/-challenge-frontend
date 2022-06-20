@@ -21,10 +21,12 @@
   font-size: 17px;
   margin-left: 16px;
 }
+
 .wrapperSearchBar {
   display: flex;
   justify-content: center;
 }
+
 .inputSearch {
   appearance: none;
   background-color: var(--grey-3);
@@ -40,9 +42,25 @@
   max-width: 640px;
 }
 
+.inputSearch:focus {
+  outline: 1px solid var(--orange-2);
+}
+
 .order {
   display: flex;
   flex-direction: column;
   gap: 5px;
   align-items: flex-end;
+}
+.order > select {
+  appearance: none;
+  width: 207px;
+  height: 47px;
+  padding-left: 34px;
+  background: var(--grey-3);
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  outline: none;
+  cursor: pointer;
 }

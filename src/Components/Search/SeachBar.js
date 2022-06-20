@@ -1,6 +1,5 @@
 import React from 'react';
 import { FiShoppingBag } from 'react-icons/fi';
-
 import styles from './SearchBar.module.css';
 
 const SeachBar = ({ search, handleSearch }) => {
@@ -21,8 +20,8 @@ const SeachBar = ({ search, handleSearch }) => {
 
       <div className={styles.order}>
         <select name="" id="">
-          <option defaultValue disabled>
-            Ordenar por:
+          <option value="" disabled selected>
+            Ordenar por (1)
           </option>
           <option value="">Maior preço</option>
           <option value="">Menor Preço</option>
