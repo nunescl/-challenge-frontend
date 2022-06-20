@@ -52,6 +52,7 @@
   gap: 5px;
   align-items: flex-end;
 }
+
 .order > select {
   appearance: none;
   width: 207px;

@@ -18,10 +18,12 @@
   margin-left: 15px;
   margin-right: 15px;
 }
+
 .wrapper input:checked {
   color: green;
   border: 1px solid green;
 }
+
 .wrapper input::before {
   content: attr(placeholder);
   display: flex;

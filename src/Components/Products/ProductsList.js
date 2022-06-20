@@ -5,7 +5,7 @@ import { ReactComponent as Pencil } from '../../Assets/pencil.svg';
 import { ReactComponent as Trash } from '../../Assets/trash.svg';
 import ProductsModal from './ProductsModal';
 
-const ProductsList = ({ products, searchJoin, searchCheckboxResult }) => {
+const ProductsList = ({ searchJoin }) => {
   const [modal, setModal] = React.useState(false);
 
   return (

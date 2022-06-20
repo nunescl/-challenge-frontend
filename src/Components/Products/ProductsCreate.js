@@ -49,9 +49,6 @@ const ProductsCreate = () => {
     if (type === 'checkbox') value = checked;
     if (value === 'true') value = true;
     if (value === 'false') value = false;
-    if (value === '1') value = 1;
-    if (value === '2') value = 2;
-    if (value === '4') value = 4;
 
     setFormValues((prevState) => ({
       ...prevState,
@@ -69,7 +66,7 @@ const ProductsCreate = () => {
     }
   }
 
-  async function handleSubmit(event, body) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData();
     Object.keys(formValues).forEach((key) => {
