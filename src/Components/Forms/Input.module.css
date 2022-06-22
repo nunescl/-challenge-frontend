@@ -34,17 +34,6 @@
   margin-right: 10px;
 }
 
-[type='radio']:checked::after {
-  content: '';
-  background-color: var(--orange-2);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  position: absolute;
-  left: 5px;
-  bottom: 5px;
-}
-
 [type='checkbox'] {
   appearance: none;
   cursor: pointer;

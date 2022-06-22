@@ -20,7 +20,7 @@ const Products = () => {
       setSearch(value);
     },
     handleCheckboxSearch = (event) => {
-      setFilter(event.target.name);
+      setFilter(event.target.placeholder);
     };
 
   const searchResult = products
