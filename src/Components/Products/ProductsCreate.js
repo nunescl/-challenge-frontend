@@ -7,25 +7,25 @@ import styles from './ProductsCreate.module.css';
 import { CAT_GET, PROD_POST } from '../../api';
 
 const ProductsCreate = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const steps = [
-    { id: 'FIELDS', title: 'Etapa 1 de 2' },
-    { id: 'FILES', title: 'Etapa 2 de 2' },
-  ];
-  const [categories, setCategories] = useState(null);
-  const [formValues, setFormValues] = useState({
-    name: '',
-    description: '',
-    englishDescription: '',
-    price: '',
-    categoryId: '',
-    disponibility: false,
-    lacFree: false,
-    glutenFree: false,
-    veg: false,
-    personCount: '',
-    image: undefined,
-  });
+  const [currentStep, setCurrentStep] = useState(0),
+    steps = [
+      { id: 'FIELDS', title: 'Etapa 1 de 2' },
+      { id: 'FILES', title: 'Etapa 2 de 2' },
+    ],
+    [categories, setCategories] = useState(null),
+    [formValues, setFormValues] = useState({
+      name: '',
+      description: '',
+      englishDescription: '',
+      price: '',
+      categoryId: '',
+      disponibility: false,
+      lacFree: false,
+      glutenFree: false,
+      veg: false,
+      personCount: '',
+      image: undefined,
+    });
 
   function handleNextStep() {
     setCurrentStep((prevState) => prevState + 1);

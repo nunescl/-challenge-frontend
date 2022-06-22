@@ -7,26 +7,16 @@ import styles from './ProductsEdit.module.css';
 import { CAT_GET, PROD_EDIT, PROD_GET_ID } from '../../api';
 
 const ProductsEdit = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const steps = [
-    { id: 'FIELDS', title: 'Etapa 1 de 2' },
-    { id: 'FILES', title: 'Etapa 2 de 2' },
-  ];
-  const [categories, setCategories] = useState(null);
-  const [formValues, setFormValues] = useState({
-    name: '',
-    description: '',
-    englishDescription: '',
-    price: '',
-    categoryId: '',
-    disponibility: false,
-    lacFree: false,
-    glutenFree: false,
-    veg: false,
-    personCount: '',
-    image: undefined,
-  });
-  const productId = window.location.pathname.slice(-36);
+  const [currentStep, setCurrentStep] = useState(0),
+    steps = [
+      { id: 'FIELDS', title: 'Etapa 1 de 2' },
+      { id: 'FILES', title: 'Etapa 2 de 2' },
+    ],
+    [categories, setCategories] = useState(null),
+    productId = window.location.pathname.slice(-36),
+    [formValues, setFormValues] = useState({}),
+    [formValuesUpdated, setFormValuesUpdated] = useState({}),
+    home = window.location.origin;
 
   React.useEffect(() => {
     CAT_GET(setCategories);
@@ -48,7 +38,7 @@ const ProductsEdit = () => {
     if (value === 'true') value = true;
     if (value === 'false') value = false;
 
-    setFormValues((prevState) => ({
+    setFormValuesUpdated((prevState) => ({
       ...prevState,
       [name]: value,
     }));
@@ -57,27 +47,25 @@ const ProductsEdit = () => {
   function handleImageChange(event) {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
-      setFormValues((prevState) => ({
+      setFormValuesUpdated((prevState) => ({
         ...prevState,
         image: img,
       }));
     }
   }
-  console.log(window.location);
 
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData();
-    Object.keys(formValues).forEach((key) => {
-      formData.append(key, formValues[key]);
+    Object.keys(formValuesUpdated).forEach((key) => {
+      formData.append(key, formValuesUpdated[key]);
     });
     PROD_EDIT(productId, formData);
+    console.log(formValuesUpdated);
     setTimeout(function () {
-      window.location.href = 'http://localhost:3000/';
-    }, 1000);
+      window.location.href = home;
+    }, 2000);
   }
-
-  console.log(window.location);
 
   return (
     <form className="animeLeft">
@@ -90,7 +78,7 @@ const ProductsEdit = () => {
           <div className={styles.headNewProduct}>
             <h1>
               {' '}
-              <FiShoppingBag /> Editar produto
+              <FiShoppingBag /> Editar produto ({formValues.name})
             </h1>
             <p>Etapa 1 de 2</p>
           </div>
@@ -101,28 +89,28 @@ const ProductsEdit = () => {
               type="text"
               name="name"
               onChange={handleChange}
-              value={formValues.name}
+              value={formValuesUpdated.name}
             />
             <Input
               placeholder="Descrição"
               type="text"
               name="description"
               onChange={handleChange}
-              value={formValues.description}
+              value={formValuesUpdated.description}
             />
             <Input
               placeholder="Descrição em Inglês"
               type="text"
               name="englishDescription"
               onChange={handleChange}
-              value={formValues.englishDescription}
+              value={formValuesUpdated.englishDescription}
             />
             <Input
               placeholder="Valor (R$)"
               type="number"
               name="price"
               onChange={handleChange}
-              value={formValues.price}
+              value={formValuesUpdated.price}
             />
             <select name="categoryId" id="" onChange={handleChange}>
               <option value="" disabled selected>
@@ -145,21 +133,21 @@ const ProductsEdit = () => {
                 type="checkbox"
                 name="lacFree"
                 onChange={handleChange}
-                value={formValues.lacFree}
+                value={formValuesUpdated.lacFree}
               />
               <Input
                 label="Livre de Gluten"
                 type="checkbox"
                 name="glutenFree"
                 onChange={handleChange}
-                value={formValues.glutenFree}
+                value={formValuesUpdated.glutenFree}
               />
               <Input
                 label="Vegetariano"
                 type="checkbox"
                 name="veg"
                 onChange={handleChange}
-                value={formValues.veg}
+                value={formValuesUpdated.veg}
               />
             </div>
             <div className={styles.radio} id="personCount">
@@ -195,7 +183,7 @@ const ProductsEdit = () => {
                 name="disponibility"
                 type="radio"
                 id="productAvailable"
-                value="true"
+                value={true}
                 onChange={handleChange}
                 label="Produto Disponível"
               />
@@ -204,7 +192,7 @@ const ProductsEdit = () => {
                 name="disponibility"
                 type="radio"
                 id="productUnavailable"
-                value="false"
+                value={false}
                 onChange={handleChange}
                 label="Produto Indisponível"
               />
@@ -221,7 +209,7 @@ const ProductsEdit = () => {
           <div className={styles.headNewProduct}>
             <h1>
               {' '}
-              <FiShoppingBag /> Cadastrar novo produto
+              <FiShoppingBag /> Editar produto ({formValues.name})
             </h1>
             <p>Etapa 2 de 2</p>
           </div>
