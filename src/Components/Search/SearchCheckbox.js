@@ -3,10 +3,6 @@ import Input from '../Forms/Input';
 import styles from './SearchCheckbox.module.css';
 
 const SearchCheckbox = ({ categories, handleCheckboxSearch }) => {
-  function handleInputChange(event) {
-    console.log(event.target.name);
-  }
-
   return (
     <div className={`${styles.wrapper} animeLeft`}>
       {(categories === null || categories.length === 0) && (

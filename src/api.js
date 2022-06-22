@@ -14,9 +14,24 @@ export function PROD_GET(set) {
   });
 }
 
+export function PROD_GET_ID(params, set) {
+  axios.get(API_URL + `products/${params}`).then((response) => {
+    set(response.data);
+  });
+}
+
 export function PROD_POST(data) {
   axios
     .post(API_URL + 'products', data)
+    .then(function (response) {
+      alert('Produto cadastrado com sucesso!', response);
+    })
+    .catch((err) => alert(err));
+}
+
+export function PROD_EDIT(params, data) {
+  axios
+    .put(API_URL + `products/update/${params}`, data)
     .then(function (response) {
       alert('Produto cadastrado com sucesso!', response);
     })

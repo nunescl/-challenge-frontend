@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Button from '../Forms/Button';
 import Input from '../Forms/Input';
 import { FiShoppingBag } from 'react-icons/fi';
 import { IoIosArrowBack } from 'react-icons/io';
 import styles from './ProductsEdit.module.css';
+import { CAT_GET, PROD_EDIT, PROD_GET_ID } from '../../api';
 
 const ProductsEdit = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -29,17 +29,9 @@ const ProductsEdit = () => {
   const productId = window.location.pathname.slice(-36);
 
   React.useEffect(() => {
-    axios
-      .get('http://bootcamp-challenge.herokuapp.com/categories')
-      .then((response) => {
-        setCategories(response.data);
-      });
-    axios
-      .get(`http://bootcamp-challenge.herokuapp.com/products/${productId}`)
-      .then((response) => {
-        setFormValues(response.data);
-      });
-  }, []);
+    CAT_GET(setCategories);
+    PROD_GET_ID(productId, setFormValues);
+  }, [productId]);
 
   function handleNextStep() {
     setCurrentStep((prevState) => prevState + 1);
@@ -78,16 +70,7 @@ const ProductsEdit = () => {
     Object.keys(formValues).forEach((key) => {
       formData.append(key, formValues[key]);
     });
-    axios
-      .put(
-        `https://bootcamp-challenge.herokuapp.com/products/update/${productId}`,
-        formData,
-      )
-      .then(function (response) {
-        console.log(response);
-        // alert('Produto atualizado com sucesso!', response);
-      });
-    // .catch((err) => alert(err));
+    PROD_EDIT(productId, formData);
   }
 
   return (

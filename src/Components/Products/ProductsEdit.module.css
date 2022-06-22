@@ -45,6 +45,17 @@ a {
   margin: 0.75rem 0;
 }
 
+.form [type='radio']:checked::after {
+  content: '';
+  background-color: var(--orange-2);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+}
+
 .form select {
   width: 640px;
   border: 1px solid var(--orange-2);
