@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.left}>
-        <Logo />
+        <Logo onClick={() => window.location.reload()} />
         <p>Olá, Ana</p>
       </div>
       <Link className={styles.exit} to="/" aria-label="Exit">

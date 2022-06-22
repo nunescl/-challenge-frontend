@@ -12,7 +12,7 @@
   display: flex;
   gap: 2rem;
   align-items: center;
-  cursor: default;
+  cursor: pointer;
 }
 
 .exit {

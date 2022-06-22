@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React from 'react';
+import { CAT_GET, PROD_GET } from '../../api';
 import SeachBar from '../Search/SeachBar';
 import SearchCheckbox from '../Search/SearchCheckbox';
 import ProductsList from './ProductsList';
@@ -11,16 +11,8 @@ const Products = () => {
   const [filter, setFilter] = React.useState('');
 
   React.useEffect(() => {
-    axios
-      .get('http://bootcamp-challenge.herokuapp.com/categories')
-      .then((response) => {
-        setCategories(response.data);
-      });
-    axios
-      .get('http://bootcamp-challenge.herokuapp.com/products')
-      .then((response) => {
-        setProducts(response.data);
-      });
+    CAT_GET(setCategories);
+    PROD_GET(setProducts);
   }, []);
 
   const handleSearch = (event) => {
@@ -36,6 +28,7 @@ const Products = () => {
         product.name.toLowerCase().includes(search.toLowerCase()),
       )
     : [];
+
   const searchCheckboxResult = products
     ? products.filter((product) => product.category.name.includes(filter))
     : [];

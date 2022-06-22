@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Button from '../Forms/Button';
 import Input from '../Forms/Input';
 import { FiShoppingBag } from 'react-icons/fi';
 import { IoIosArrowBack } from 'react-icons/io';
 import styles from './ProductsCreate.module.css';
+import { CAT_GET, PROD_POST } from '../../api';
 
 const ProductsCreate = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -36,11 +36,7 @@ const ProductsCreate = () => {
   }
 
   React.useEffect(() => {
-    axios
-      .get('http://bootcamp-challenge.herokuapp.com/categories')
-      .then((response) => {
-        setCategories(response.data);
-      });
+    CAT_GET(setCategories);
   }, []);
 
   function handleChange(event) {
@@ -72,12 +68,7 @@ const ProductsCreate = () => {
     Object.keys(formValues).forEach((key) => {
       formData.append(key, formValues[key]);
     });
-    axios
-      .post('https://bootcamp-challenge.herokuapp.com/products', formData)
-      .then(function (response) {
-        alert('Produto cadastrado com sucesso!', response);
-      })
-      .catch((err) => alert(err));
+    PROD_POST(FormData);
   }
 
   return (

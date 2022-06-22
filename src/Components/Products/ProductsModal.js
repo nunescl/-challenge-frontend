@@ -1,16 +1,10 @@
 import React from 'react';
 import styles from './ProductsModal.module.css';
-import axios from 'axios';
+import { PROD_DELETE } from '../../api';
 
 const ProductsModal = ({ closeModal, product }) => {
   function handleDelete() {
-    axios
-      .delete(
-        `https://bootcamp-challenge.herokuapp.com/products/delete/${product.id}`,
-      )
-      .then((response) => {
-        window.location.reload();
-      });
+    PROD_DELETE(product.id);
   }
 
   return (
