@@ -33,7 +33,7 @@ export function PROD_EDIT(params, data) {
   axios
     .put(API_URL + `products/update/${params}`, data)
     .then(function (response) {
-      alert('Produto cadastrado com sucesso!', response);
+      alert('Produto atualizado com sucesso!', response);
     })
     .catch((err) => alert(err));
 }

@@ -63,6 +63,7 @@ const ProductsEdit = () => {
       }));
     }
   }
+  console.log(window.location);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -71,7 +72,12 @@ const ProductsEdit = () => {
       formData.append(key, formValues[key]);
     });
     PROD_EDIT(productId, formData);
+    setTimeout(function () {
+      window.location.href = 'http://localhost:3000/';
+    }, 1000);
   }
+
+  console.log(window.location);
 
   return (
     <form className="animeLeft">
