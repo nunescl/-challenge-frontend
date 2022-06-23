@@ -5,6 +5,7 @@
   align-items: center;
   padding: 2rem;
   height: 117px;
+  width: 100vw;
   user-select: none;
 }
 
@@ -17,4 +18,31 @@
 
 .exit {
   padding-right: 2rem;
+}
+
+.headerMobile {
+  background: var(--orange-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  height: 90px;
+  user-select: none;
+}
+
+.leftMobile {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.leftMobile > p {
+  font-size: 10px;
+}
+.leftMobile:first-child {
+  width: 100px;
+}
+.exitMobile svg {
+  width: 20px;
 }

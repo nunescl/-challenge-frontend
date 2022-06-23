@@ -133,3 +133,98 @@ input::-webkit-inner-spin-button {
   background: var(--orange-2);
   border: -5px solid var(--white-1);
 }
+
+.containerMobile {
+  width: 100vw;
+}
+
+.containerMobile * h1 {
+  font-size: 1.2rem;
+}
+
+.containerMobile * h2 {
+  font-size: 1rem;
+}
+
+.containerMobile * label {
+  font-size: 0.875rem;
+}
+
+.containerMobile * button {
+  width: 2rem;
+}
+
+.wrapperMobile {
+  display: grid;
+  grid-template-columns: 1fr 6fr 0.5fr;
+  margin-top: 2rem;
+}
+
+.wrapperMobile .arrow {
+  grid-column: 1;
+  margin: 0.5rem;
+}
+
+.headNewProductMobile {
+  grid-column: 2/3;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.headNewProductMobile p {
+  font-size: 0.875rem;
+}
+
+.formMobile {
+  grid-column: 2/3;
+  width: fit-content;
+}
+
+.formMobile input[type='text'],
+.formMobile input[type='number'],
+.formMobile select {
+  width: 90%;
+  height: 2.5rem;
+}
+
+.formMobile select {
+  outline: none;
+  border: 1px solid var(--orange-2);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0.5rem;
+  border-radius: 0.4rem;
+  transition: 0.2s;
+}
+
+.LGVMobile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+
+.btnMobile {
+  display: flex;
+  justify-content: end;
+}
+
+.formMobile2 {
+  grid-column: 2;
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.mobileFile {
+  /* appearance: none; */
+  background-color: var(--grey-3);
+  border: 1px solid var(--orange-2);
+  border-radius: 12px;
+  height: 5rem;
+  font-size: 12px;
+  padding: 1rem;
+}

@@ -4,16 +4,22 @@ import styles from './ProductsList.module.css';
 import { ReactComponent as Pencil } from '../../Assets/pencil.svg';
 import { ReactComponent as Trash } from '../../Assets/trash.svg';
 import ProductsModal from './ProductsModal';
+import useMedia from '../../Hooks/useMedia';
 
 const ProductsList = ({ searchJoin }) => {
   const [modal, setModal] = React.useState(false);
+  const mobile = useMedia('(max-width: 700px)');
 
   return (
     <>
       {(searchJoin === null || searchJoin.length === 0) && (
-        <div className={`${styles.wrapper} animeLeft`}>
+        <div
+          className={`${
+            mobile ? styles.wrapperMobile : styles.wrapper
+          } animeLeft`}
+        >
           <Leaf />
-          <div className={styles.holder}>
+          <div className={`${mobile ? styles.holderMobile : styles.holder}`}>
             <h2>Ops! Nenhum produto encontrado!</h2>
             <p>
               Cadastre o seu primeiro produto e comece a vender agora mesmo.

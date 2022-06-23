@@ -61,7 +61,6 @@ const ProductsEdit = () => {
       formData.append(key, formValuesUpdated[key]);
     });
     PROD_EDIT(productId, formData);
-    console.log(formValuesUpdated);
     setTimeout(function () {
       window.location.href = home;
     }, 2000);

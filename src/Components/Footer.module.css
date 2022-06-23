@@ -1,4 +1,5 @@
-.footer {
+.footer,
+.footerMobile {
   background: var(--grey-3);
   height: 93px;
   width: 100%;
@@ -8,4 +9,8 @@
   display: grid;
   align-items: center;
   justify-content: center;
+}
+.footerMobile {
+  height: 70px;
+  font-size: 10px;
 }

@@ -22,3 +22,16 @@
   /* opacity: 0.5; */
   cursor: wait;
 }
+
+.buttonMobile {
+  font-size: 0.875rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: var(--orange-2);
+  color: var(--white-1);
+  min-width: 150px;
+  padding: 0.8rem 1.2rem;
+  box-sizing: border-box;
+  transition: 0.1s;
+}

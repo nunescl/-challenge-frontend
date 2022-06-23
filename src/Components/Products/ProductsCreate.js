@@ -5,6 +5,7 @@ import { FiShoppingBag } from 'react-icons/fi';
 import { IoIosArrowBack } from 'react-icons/io';
 import styles from './ProductsCreate.module.css';
 import { CAT_GET, PROD_POST } from '../../api';
+import useMedia from '../../Hooks/useMedia';
 
 const ProductsCreate = () => {
   const [currentStep, setCurrentStep] = useState(0),
@@ -25,7 +26,9 @@ const ProductsCreate = () => {
       veg: false,
       personCount: '',
       image: undefined,
-    });
+    }),
+    home = window.location.origin,
+    mobile = useMedia('(max-width: 920px)');
 
   function handleNextStep() {
     setCurrentStep((prevState) => prevState + 1);
@@ -68,25 +71,35 @@ const ProductsCreate = () => {
     Object.keys(formValues).forEach((key) => {
       formData.append(key, formValues[key]);
     });
-    PROD_POST(FormData);
+    PROD_POST(formData);
+    setTimeout(function () {
+      window.location.href = home;
+    }, 2000);
   }
 
   return (
-    <form className="animeLeft">
+    <form className={`${mobile ? styles.containerMobile : styles.container}`}>
       {steps[currentStep].id === 'FIELDS' && (
-        <section className={`${styles.wrapper} animeLeft`}>
+        <section
+          className={`${
+            mobile ? styles.wrapperMobile : styles.wrapper
+          } animeLeft`}
+        >
           <a href="/">
             <IoIosArrowBack className={styles.arrow} />
           </a>
-
-          <div className={styles.headNewProduct}>
+          <div
+            className={
+              mobile ? styles.headNewProductMobile : styles.headNewProduct
+            }
+          >
             <h1>
               {' '}
               <FiShoppingBag /> Cadastrar novo produto
             </h1>
             <p>Etapa 1 de 2</p>
           </div>
-          <div className={styles.form}>
+          <div className={`${mobile ? styles.formMobile : styles.form}`}>
             {' '}
             <Input
               placeholder="Nome do Produto"
@@ -131,7 +144,7 @@ const ProductsCreate = () => {
                   </option>
                 ))}
             </select>
-            <div className={styles.LGV}>
+            <div className={`${mobile ? styles.LGVMobile : styles.LGV}`}>
               <Input
                 label="Livre de Lactose"
                 type="checkbox"
@@ -208,24 +221,38 @@ const ProductsCreate = () => {
         </section>
       )}
       {steps[currentStep].id === 'FILES' && (
-        <section className={`${styles.wrapper} animeLeft`}>
+        <section
+          className={`${
+            mobile ? styles.wrapperMobile : styles.wrapper
+          } animeLeft`}
+        >
           <IoIosArrowBack onClick={handlePrevStep} className={styles.arrow} />
-          <div className={styles.headNewProduct}>
+          <div
+            className={
+              mobile ? styles.headNewProductMobile : styles.headNewProduct
+            }
+          >
             <h1>
               {' '}
               <FiShoppingBag /> Cadastrar novo produto
             </h1>
             <p>Etapa 2 de 2</p>
           </div>
-          <div className={styles.form2}>
+          <div className={`${mobile ? styles.formMobile2 : styles.form2}`}>
             <h2>Selecione a foto do produto</h2>
             <input
               type="file"
-              className={styles.bigFile}
+              className={`${mobile ? styles.mobileFile : styles.bigFile}`}
               onChange={handleImageChange}
             />
-            <input type="file" className={styles.smallFile} />
-            <input type="file" className={styles.smallFile} />
+            <input
+              type="file"
+              className={`${mobile ? styles.mobileFile : styles.smallFile}`}
+            />
+            <input
+              type="file"
+              className={`${mobile ? styles.mobileFile : styles.smallFile}`}
+            />
             <div className={styles.btn2}>
               <Button onClick={handleSubmit}>Cadastrar</Button>
             </div>
