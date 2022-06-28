@@ -215,12 +215,11 @@ input::-webkit-inner-spin-button {
   grid-column: 2;
   width: auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 24px;
 }
 
 .mobileFile {
-  /* appearance: none; */
   background-color: var(--grey-3);
   border: 1px solid var(--orange-2);
   border-radius: 12px;
